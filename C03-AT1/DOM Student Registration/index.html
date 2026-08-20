@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Preview</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fdf2f8;
+            padding: 40px;
+        }
+
+        .container {
+            width: 480px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px #fbcfe8;
+        }
+
+        h1 {
+            text-align: center;
+            color: #9d174d;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            color: #831843;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin-top: 7px;
+            border: 2px solid #f9a8d4;
+            border-radius: 9px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #db2777;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 9px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #displayBtn {
+            background: #db2777;
+        }
+
+        #displayBtn:hover {
+            background: #be185d;
+        }
+
+        #removeBtn {
+            background: #7c3aed;
+        }
+
+        #removeBtn:hover {
+            background: #6d28d9;
+        }
+
+        #profileArea {
+            margin-top: 25px;
+        }
+
+        .student-profile {
+            padding: 22px;
+            background: #fce7f3;
+            border-left: 6px solid #db2777;
+            border-radius: 12px;
+        }
+
+        .student-profile h2 {
+            margin-top: 0;
+            color: #9d174d;
+        }
+
+        .student-profile p {
+            color: #500724;
+            font-size: 16px;
+            margin: 12px 0;
+        }
+
+        .student-profile span {
+            font-weight: bold;
+            color: #be185d;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Registration</h1>
+
+    <label for="studentName">Student Name</label>
+    <input type="text" id="studentName" placeholder="Enter student name">
+
+    <label for="registerNumber">Register Number</label>
+    <input type="text" id="registerNumber" placeholder="Enter register number">
+
+    <label for="department">Department</label>
+    <select id="department">
+        <option value="">Select Department</option>
+        <option value="Information Technology">Information Technology</option>
+        <option value="Computer Science Engineering">Computer Science Engineering</option>
+        <option value="Artificial Intelligence and Data Science">Artificial Intelligence and Data Science</option>
+        <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
+    </select>
+
+    <label for="year">Year of Study</label>
+    <select id="year">
+        <option value="">Select Year</option>
+        <option value="1st Year">1st Year</option>
+        <option value="2nd Year">2nd Year</option>
+        <option value="3rd Year">3rd Year</option>
+        <option value="4th Year">4th Year</option>
+    </select>
+
+    <div class="buttons">
+        <button id="displayBtn">Display Profile</button>
+        <button id="removeBtn">Remove Profile</button>
+    </div>
+
+    <div id="profileArea"></div>
+
+</div>
+
+<script>
+    const displayButton = document.getElementById("displayBtn");
+    const removeButton = document.getElementById("removeBtn");
+    const profileArea = document.getElementById("profileArea");
+
+    displayButton.addEventListener("click", function () {
+
+        const studentName = document.getElementById("studentName").value;
+        const registerNumber = document.getElementById("registerNumber").value;
+        const department = document.getElementById("department").value;
+        const year = document.getElementById("year").value;
+
+        if (
+            studentName.trim() === "" ||
+            registerNumber.trim() === "" ||
+            department === "" ||
+            year === ""
+        ) {
+            alert("Please fill all the details.");
+            return;
+        }
+
+        profileArea.textContent = "";
+
+        const profile = document.createElement("div");
+
+        profile.classList.add("student-profile");
+
+        const heading = document.createElement("h2");
+        heading.textContent = "Student Profile";
+
+        const nameText = document.createElement("p");
+        nameText.innerHTML = "<span>Student Name:</span> " + studentName;
+
+        const registerText = document.createElement("p");
+        registerText.innerHTML = "<span>Register Number:</span> " + registerNumber;
+
+        const departmentText = document.createElement("p");
+        departmentText.innerHTML = "<span>Department:</span> " + department;
+
+        const yearText = document.createElement("p");
+        yearText.innerHTML = "<span>Year of Study:</span> " + year;
+
+        profile.appendChild(heading);
+        profile.appendChild(nameText);
+        profile.appendChild(registerText);
+        profile.appendChild(departmentText);
+        profile.appendChild(yearText);
+
+        profileArea.appendChild(profile);
+    });
+
+    removeButton.addEventListener("click", function () {
+        profileArea.textContent = "";
+    });
+</script>
+
+</body>
+</html>
