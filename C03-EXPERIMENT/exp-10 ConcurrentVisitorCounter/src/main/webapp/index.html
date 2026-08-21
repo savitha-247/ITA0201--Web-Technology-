@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Concurrent Visitor Counter</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            width: 600px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #4b0082;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 30px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>👥 Concurrent Visitor Counter</h1>
+
+    <p>
+        This experiment demonstrates servlet concurrency,
+        shared variables and race conditions.
+    </p>
+
+    <p>
+        <b>Unsafe Counter vs Thread-Safe AtomicInteger</b>
+    </p>
+
+    <a class="button" href="VisitorCounterServlet">
+        View Visitor Counter
+    </a>
+
+</div>
+
+</body>
+</html>
