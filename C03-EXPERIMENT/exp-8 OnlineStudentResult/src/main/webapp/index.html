@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Online Student Result</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 650px;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4b0082;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 7px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 5px rgba(102,126,234,0.5);
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            opacity: 0.9;
+        }
+
+        .note {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎓 Online Student Result</h1>
+
+    <p class="subtitle">
+        Enter student details and subject marks
+    </p>
+
+    <form action="OnlineStudentResultServlet" method="post">
+
+        <label>Student Name</label>
+        <input type="text"
+               name="name"
+               placeholder="Enter student name">
+
+        <label>Register Number</label>
+        <input type="text"
+               name="regno"
+               placeholder="Enter register number">
+
+        <label>Subject Marks</label>
+
+        <div class="subjects">
+
+            <input type="text"
+                   name="mark1"
+                   placeholder="Subject 1 Mark">
+
+            <input type="text"
+                   name="mark2"
+                   placeholder="Subject 2 Mark">
+
+            <input type="text"
+                   name="mark3"
+                   placeholder="Subject 3 Mark">
+
+            <input type="text"
+                   name="mark4"
+                   placeholder="Subject 4 Mark">
+
+            <input type="text"
+                   name="mark5"
+                   placeholder="Subject 5 Mark">
+
+        </div>
+
+        <button type="submit" class="button">
+            Calculate Result
+        </button>
+
+    </form>
+
+    <p class="note">
+        Marks must be between 0 and 100
+    </p>
+
+</div>
+
+</body>
+</html>
